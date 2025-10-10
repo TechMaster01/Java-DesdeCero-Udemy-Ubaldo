@@ -1,4 +1,4 @@
-package Cadenas;
+package CADENAS;
 
 public class  MasConcatenacionesCadenas {
     public static void main(String[] args) {

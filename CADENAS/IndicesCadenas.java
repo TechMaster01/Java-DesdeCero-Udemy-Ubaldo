@@ -1,4 +1,5 @@
-package Cadenas;
+package CADENAS;
+
 public class IndicesCadenas {
     public static void main(String[] args) {
         

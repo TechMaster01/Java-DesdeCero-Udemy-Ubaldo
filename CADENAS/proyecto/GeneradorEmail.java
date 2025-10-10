@@ -1,4 +1,4 @@
-package Cadenas.proyecto;
+package CADENAS.proyecto;
 
 public class GeneradorEmail {
     public static void main(String[] args) {

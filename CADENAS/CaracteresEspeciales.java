@@ -1,4 +1,4 @@
-package Cadenas;
+package CADENAS;
 
 public class CaracteresEspeciales {
     public static void main(String[] args) {

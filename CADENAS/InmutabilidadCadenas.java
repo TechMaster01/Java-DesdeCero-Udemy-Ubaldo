@@ -1,4 +1,5 @@
-package Cadenas;
+package CADENAS;
+
 public class InmutabilidadCadenas {
     public static void main(String[] args) {
         var cadena1 = "Mario";
