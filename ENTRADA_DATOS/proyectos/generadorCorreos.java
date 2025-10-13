@@ -14,7 +14,9 @@ public class generadorCorreos {
         System.out.print("Ingresa la empresa en la que trabajas: ");
         String empresa = scanner.nextLine();
 
-        System.out.println("El nombre ingresado es: " + nombres + " " + apePaterno + " " + apeMaterno + " y trabaja para " + empresa);
+        System.out.println("\n");
+        System.out.println("El nombre ingresado es: " + nombres.trim().toLowerCase() + " " + apePaterno.trim().toLowerCase() + " " + apeMaterno.trim().toLowerCase() + " y trabaja para " + empresa.trim().toLowerCase());
+        System.out.println("\n");
 
         // Encontrar el primer nombre
         int primerEspacio = nombres.indexOf(" ");
@@ -27,7 +29,7 @@ public class generadorCorreos {
             primerNombre = nombres;
         }
 
-        String dominio = ".com.arg";
+        String dominio = ".com";
         String correo = primerNombre.trim().toLowerCase() + "." + apePaterno.trim().toLowerCase() + "@" + empresa.trim().toLowerCase() + dominio;
 
         System.out.println("\n");
