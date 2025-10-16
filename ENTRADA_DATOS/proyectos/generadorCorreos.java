@@ -5,20 +5,49 @@ import java.util.Scanner;
 public class generadorCorreos {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingresa tu nombres: ");
-        String nombres = scanner.nextLine();
-        System.out.print("Ingresa tu apellido paterno: ");
-        String apePaterno = scanner.nextLine();
-        System.out.print("Ingresa tu apellido materno: ");
-        String apeMaterno = scanner.nextLine();
-        System.out.print("Ingresa la empresa en la que trabajas: ");
-        String empresa = scanner.nextLine();
+        String nombres, apePaterno, apeMaterno, empresa;
+
+        // Bucle para solicitar y validar nombres
+        do {
+            System.out.print("Ingresa tu nombres: ");
+            nombres = scanner.nextLine().trim();
+            // La expresión regular [^a-zA-ZáéíóúÁÉÍÓÚñÑ\s] busca cualquier caracter que NO sea una letra (con o sin acento, o 'ñ') o un espacio.
+            if (nombres.matches(".*[^a-zA-ZáéíóúÁÉÍÓÚñÑ\\s].*") || nombres.isEmpty()) {
+                System.out.println("Error: El nombre solo puede contener letras y espacios y no debe estar vacío. Intenta de nuevo.");
+            }
+        } while (nombres.matches(".*[^a-zA-ZáéíóúÁÉÍÓÚñÑ\\s].*") || nombres.isEmpty());
+
+        // Bucle para solicitar y validar apellido paterno
+        do {
+            System.out.print("Ingresa tu apellido paterno: ");
+            apePaterno = scanner.nextLine().trim();
+            if (apePaterno.matches(".*[^a-zA-ZáéíóúÁÉÍÓÚñÑ\\s].*") || apePaterno.isEmpty()) {
+                System.out.println("Error: El apellido paterno solo puede contener letras y espacios y no debe estar vacío. Intenta de nuevo.");
+            }
+        } while (apePaterno.matches(".*[^a-zA-ZáéíóúÁÉÍÓÚñÑ\\s].*") || apePaterno.isEmpty());
+
+        // Bucle para solicitar y validar apellido materno
+        do {
+            System.out.print("Ingresa tu apellido materno: ");
+            apeMaterno = scanner.nextLine().trim();
+            if (apeMaterno.matches(".*[^a-zA-ZáéíóúÁÉÍÓÚñÑ\\s].*") || apeMaterno.isEmpty()) {
+                System.out.println("Error: El apellido materno solo puede contener letras y espacios y no debe estar vacío. Intenta de nuevo.");
+            }
+        } while (apeMaterno.matches(".*[^a-zA-ZáéíóúÁÉÍÓÚñÑ\\s].*") || apeMaterno.isEmpty());
+
+        // Bucle para solicitar y validar nombre de la empresa
+        do {
+            System.out.print("Ingresa la empresa en la que trabajas: ");
+            empresa = scanner.nextLine().trim();
+            if (empresa.matches(".*[^a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\\s].*") || empresa.isEmpty()) {
+                System.out.println("Error: El nombre de la empresa solo puede contener letras, números y espacios y no debe estar vacío. Intenta de nuevo.");
+            }
+        } while (empresa.matches(".*[^a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\\s].*") || empresa.isEmpty());
 
         System.out.println("\n");
-        System.out.println("El nombre ingresado es: " + nombres.trim().toLowerCase() + " " + apePaterno.trim().toLowerCase() + " " + apeMaterno.trim().toLowerCase() + " y trabaja para " + empresa.trim().toLowerCase());
+        System.out.println("El nombre ingresado es: " + nombres.toLowerCase() + " " + apePaterno.toLowerCase() + " " + apeMaterno.toLowerCase() + " y trabaja para " + empresa.toLowerCase());
         System.out.println("\n");
 
-        // Encontrar el primer nombre
         int primerEspacio = nombres.indexOf(" ");
 
         String primerNombre;
@@ -30,7 +59,7 @@ public class generadorCorreos {
         }
 
         String dominio = ".com";
-        String correo = primerNombre.trim().toLowerCase() + "." + apePaterno.trim().toLowerCase() + "@" + empresa.trim().toLowerCase() + dominio;
+        String correo = primerNombre.toLowerCase() + "." + apePaterno.toLowerCase().replaceAll("\\s", "") + "@" + empresa.toLowerCase().replaceAll("\\s", "") + dominio;
 
         System.out.println("\n");
         System.out.println("El correo generado para esa persona es: " + correo);
