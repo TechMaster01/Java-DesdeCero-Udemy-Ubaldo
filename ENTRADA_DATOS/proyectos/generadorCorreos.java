@@ -7,7 +7,7 @@ public class generadorCorreos {
         Scanner scanner = new Scanner(System.in);
         String nombres, apePaterno, apeMaterno, empresa;
 
-        // Bucle para solicitar y validar nombres
+        // Bucle do-while para solicitar y validar nombres
         do {
             System.out.print("Ingresa tu nombres: ");
             nombres = scanner.nextLine().trim();
