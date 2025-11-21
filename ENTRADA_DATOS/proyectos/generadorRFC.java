@@ -37,16 +37,25 @@ public class generadorRFC {
         String numeroFormateado = String.format("%02d", numero);
         String homoclave = "" + letra + numeroFormateado;
 
+        // Normalizar variables
+        String nombreNormalizado = nombre.trim().toUpperCase();
+        String apellidoPaternoNormalizado = apellidoPaterno.trim().toUpperCase();
+        String apellidoMaternoNormalizado = apellidoMaterno.trim().toUpperCase();
+        String anioNacimientoNormalizado = anioNacimiento.trim();
+        String mesNacimientoNormalizado = mesNacimiento.trim();
+        String diaNacimientoNormalizado = diaNacimiento.trim();
+
         StringBuilder rfcBuilder = new StringBuilder();
 
-        rfcBuilder.append(apellidoPaterno.trim().substring(0, 2).toUpperCase());
-        rfcBuilder.append(apellidoMaterno.trim().substring(0, 1).toUpperCase());
-        rfcBuilder.append(nombre.trim().substring(0, 1).toUpperCase());
-        rfcBuilder.append(anioNacimiento.trim().substring(2, 4));
-        rfcBuilder.append(mesNacimiento.trim());
-        rfcBuilder.append(diaNacimiento.trim());
+        rfcBuilder.append(apellidoPaternoNormalizado.substring(0, 2));
+        rfcBuilder.append(apellidoMaternoNormalizado.substring(0, 1));
+        rfcBuilder.append(nombreNormalizado.substring(0, 1));
+        rfcBuilder.append(anioNacimientoNormalizado.substring(2, 4));
+        rfcBuilder.append(mesNacimientoNormalizado);
+        rfcBuilder.append(diaNacimientoNormalizado);
 
         String rfc = rfcBuilder.toString();
+        
         System.out.println("RFC sin homoclave: " + rfc);
         System.out.println("Homoclave: " + homoclave);
         System.out.println("\n");
