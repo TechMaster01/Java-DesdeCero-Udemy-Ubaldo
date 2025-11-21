@@ -35,16 +35,16 @@ public class generadorRFC {
         char letra = (char) (random.nextInt(26) + 'A');
         int numero = random.nextInt(100);
         String numeroFormateado = String.format("%02d", numero);
-
         String homoclave = "" + letra + numeroFormateado;
 
         StringBuilder rfcBuilder = new StringBuilder();
-        rfcBuilder.append(apellidoPaterno.substring(0, 2).toUpperCase());
-        rfcBuilder.append(apellidoMaterno.substring(0, 1).toUpperCase());
-        rfcBuilder.append(nombre.substring(0, 1).toUpperCase());
-        rfcBuilder.append(anioNacimiento.substring(2, 4));
-        rfcBuilder.append(mesNacimiento);
-        rfcBuilder.append(diaNacimiento);
+
+        rfcBuilder.append(apellidoPaterno.trim().substring(0, 2).toUpperCase());
+        rfcBuilder.append(apellidoMaterno.trim().substring(0, 1).toUpperCase());
+        rfcBuilder.append(nombre.trim().substring(0, 1).toUpperCase());
+        rfcBuilder.append(anioNacimiento.trim().substring(2, 4));
+        rfcBuilder.append(mesNacimiento.trim());
+        rfcBuilder.append(diaNacimiento.trim());
 
         String rfc = rfcBuilder.toString();
         System.out.println("RFC sin homoclave: " + rfc);
